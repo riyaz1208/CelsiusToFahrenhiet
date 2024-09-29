@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+            background-color: yellow;
+        }
+        .container{
+            width: 300px;
+            height: 300px;
+            background-color: aqua;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+        #input{
+            outline: none;
+            padding: 10px;
+            border-top: transparent;
+            border-right: transparent;
+            border-left: transparent;
+            border-bottom: 1px solid black;
+            background-color: transparent;
+        }
+        .inn{
+            position: relative;
+        }
+        .lab{
+            position: absolute;
+            left: 20px;
+            top: 10px;
+        }
+        #input:focus+.lab{
+            top: -10px;
+            left: 10px;
+            transition: all 0.5s;
+        }
+        #input:not(:focus):valid+.lab{
+            top: -10px;
+            left: 10px;
+        }
+        #bt{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="inn">
+            <input type="text" id="input" required tel>
+            <label for="" class="lab">Enter the celcius</label>
+        </div>
+        <div class="btn">
+            <button id="bt" onclick="convert()">convert into fahrenheit</button>
+        </div>
+        <div id="result"></div>
+    </div>
+    <script>
+        function convert(){
+        let a= Number(document.getElementById("input").value);
+        let b= (a*9/5)+32;
+        const out= document.getElementById("result");
+        out.innerHTML= b +" " + "fahrenheit"
+        }
+    </script>
+</body>
+</html>
